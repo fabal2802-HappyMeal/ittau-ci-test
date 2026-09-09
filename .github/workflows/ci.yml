@@ -1,0 +1,20 @@
+name: My First CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  check-website:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get repository files
+        uses: actions/checkout@v4
+
+      - name: Check if index.html exists
+        run: test -f index.html
+
+      - name: Show success message
+        run: echo "Website check successful!"
